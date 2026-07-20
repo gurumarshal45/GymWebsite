@@ -1,106 +1,141 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+
 
 const features = [
   {
     icon: "fitness_center",
-    title: "Precision Gear",
+    title: "Complete Equipment",
     description:
-      "Premium equipment designed for performance, durability, and biomechanical accuracy.",
+      "Strength and fitness equipment for beginners, regular members, and serious lifters.",
   },
   {
     icon: "person_pin",
-    title: "Elite Coaches",
+    title: "Experienced Trainer",
     description:
-      "Train with experienced coaches focused on strength, conditioning, and longevity.",
+      "Train under T. Suresh, who has 30 years of hands-on fitness and coaching experience.",
   },
   {
-    icon: "spa",
-    title: "Luxury Recovery",
+    icon: "groups",
+    title: "Friendly Environment",
     description:
-      "Recovery services designed to help members train consistently and safely.",
+      "A supportive local gym atmosphere where members can train consistently and confidently.",
   },
   {
-    icon: "restaurant",
-    title: "Bespoke Fuel",
+    icon: "payments",
+    title: "Affordable Plans",
     description:
-      "Personalized nutrition guidance to support performance and body-composition goals.",
+      "Simple monthly, 3-month, and 6-month membership options with clear pricing.",
   },
 ];
 
-const services = [
+type Service = {
+  title: string;
+  description: string;
+  image?: string;
+  video?: string;
+};
+
+const services: Service[] = [
   {
     title: "Personal Training",
     description:
       "One-on-one sessions built around your goals, fitness level, and progress data.",
-    image:
-      "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/image0.jpeg",
   },
   {
-    title: "Group Classes",
+    title: "Gym Tour",
     description:
-      "High-energy classes combining expert instruction, community, and measurable progress.",
-    image:
-      "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200&q=80",
+      "Take a look inside our gym, training areas, equipment, and member experience.",
+    video: "/images/video.mov",
+  },
+  {
+    title: "Personal Coaching",
+    description:
+      "One-on-one coaching designed around your fitness level, body goals, and performance progress.",
+    image: "/images/image1.jpeg",
+  },
+  {
+    title: "Elite Training",
+    description:
+      "Access premium equipment, expert coaches, exclusive classes, and a complete fitness experience.",
+    image: "/images/image2.jpeg",
   },
   {
     title: "Nutrition Coaching",
     description:
       "Science-informed nutrition plans for performance, recovery, and sustainable results.",
-    image:
-      "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/image3.jpeg",
+  },
+  {
+    title: "Recovery Zone",
+    description:
+      "Premium recovery services designed to reduce fatigue, improve mobility, and support consistent training.",
+    image: "/images/image4.jpeg",
+  },
+  {
+    title: "Strength Training",
+    description:
+      "Structured strength programs focused on muscle development, technique, and long-term progression.",
+    image: "/images/image5.jpeg",
+  },
+  {
+    title: "Years of Experiencehip Card",
+    description:
+      "Access premium equipment, expert coaches, exclusive classes, and a complete fitness experience.",
+    image: "/images/image6.jpeg",
+  },
+  {
+    title: "Years of Experiencehip",
+    description:
+      "Access premium equipment, expert coaches, exclusive classes, and a complete fitness experience.",
+    image: "/images/image7.jpeg",
   },
 ];
 
 const plans = [
   {
-    name: "Basic",
-    price: "$149",
+    name: "Monthly",
+    price: "₹500",
     featured: false,
     benefits: [
-      "Global club access",
-      "Performance locker",
-      "Apex digital app",
+      "Monthly gym access",
+      "₹300 one-time advance",
+      "Trainer guidance included",
     ],
+    note: "Total first payment: ₹800",
   },
   {
-    name: "Elite",
-    price: "$349",
+    name: "3 Months",
+    price: "₹1,700",
     featured: true,
     benefits: [
-      "Unlimited recovery access",
-      "Priority class booking",
-      "4 guest passes monthly",
-      "Biometric assessment",
+      "Three months gym access",
+      "Only ₹100 payable at the office",
+      "No separate ₹300 advance",
     ],
+    note: "Best short-term value",
   },
   {
-    name: "Pro",
-    price: "$249",
+    name: "6 Months",
+    price: "₹3,000",
     featured: false,
     benefits: [
-      "Group class access",
-      "Sauna and steam suite",
-      "Apparel cleaning",
+      "Six months gym access",
+      "No advance payment",
+      "Trainer guidance included",
     ],
+    note: "Best long-term value",
   },
 ];
 
 export default function Home() {
-  const [submitted, setSubmitted] = useState(false);
-
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setSubmitted(true);
-  }
-
   return (
     <main className="min-h-screen bg-black text-white">
       <nav className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-black/70 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
           <a href="#home" className="text-xl font-extrabold tracking-tight">
-            APEX FITNESS
+            METRO FLEX GYM
           </a>
 
           <div className="hidden items-center gap-8 text-xs font-semibold uppercase tracking-[0.2em] md:flex">
@@ -122,7 +157,7 @@ export default function Home() {
             href="#memberships"
             className="bg-[#ff6700] px-5 py-3 text-xs font-bold uppercase tracking-[0.18em] text-black transition hover:scale-105"
           >
-            Join Elite
+            Join Now
           </a>
         </div>
       </nav>
@@ -137,29 +172,29 @@ export default function Home() {
       >
         <div className="relative z-10 mx-auto max-w-4xl pt-24">
           <h1 className="text-5xl font-extrabold uppercase leading-none tracking-[0.04em] sm:text-7xl lg:text-8xl">
-            <span className="text-gradient-gold">Forge Your</span>
+            <span className="text-gradient-gold">Build Your</span>
             <br />
-            Legacy
+            Strength
           </h1>
 
           <p className="mx-auto mt-8 max-w-2xl text-lg leading-8 text-zinc-300">
             Experience the pinnacle of performance in a space designed for the
-            disciplined. Luxury meets grit at Apex Fitness.
+            disciplined. Luxury meets grit at Metro Flex Gym.
           </p>
 
           <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
             <a
               href="#contact"
-              className="bg-[#ff6700] px-8 py-4 font-bold uppercase tracking-widest text-black hover:shadow-[0_0_24px_rgba(255,103,0,.45)]"
+              className="bg-[#ff6700] px-8 py-4 font-bold uppercase tracking-widest text-black hover:shadow-[0_0_24px_rgba(255,103,0,.3)]"
             >
-              Start Your Transformation
+              Join Metro Flex
             </a>
 
             <a
               href="#training"
               className="glass px-8 py-4 font-bold uppercase tracking-widest text-[#d4af37] hover:border-[#d4af37]"
             >
-              Explore Elite Perks
+              View Membership Plans
             </a>
           </div>
         </div>
@@ -171,7 +206,7 @@ export default function Home() {
       >
         <div className="mb-14">
           <h2 className="text-4xl font-extrabold uppercase sm:text-5xl">
-            The Apex Edge
+            Why Metro Flex
           </h2>
           <div className="mt-4 h-1 w-24 bg-[#d4af37]" />
         </div>
@@ -202,7 +237,7 @@ export default function Home() {
       >
         <div className="mx-auto max-w-7xl">
           <h2 className="text-4xl font-extrabold uppercase sm:text-5xl">
-            Tailored Performance
+            Training at Metro Flex
           </h2>
 
           <p className="mt-4 max-w-2xl text-lg text-zinc-400">
@@ -214,17 +249,36 @@ export default function Home() {
             {services.map((service) => (
               <article
                 key={service.title}
-                className="group relative h-[520px] overflow-hidden"
+                className="group relative h-[520px] overflow-hidden bg-black"
               >
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="h-full w-full object-cover grayscale transition duration-700 group-hover:scale-105 group-hover:grayscale-0"
-                />
+                {service.video ? (
+                  <video
+                    className="h-full w-full object-cover"
+                    controls
+                    playsInline
+                    preload="metadata"
+                  >
+                    <source
+                      src={service.video}
+                      type={
+                        service.video.endsWith(".mov")
+                          ? "video/quicktime"
+                          : "video/mp4"
+                      }
+                    />
+                    Your browser does not support the video tag.
+                  </video>
+                ) : (
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="h-full w-full object-cover grayscale transition duration-700 group-hover:scale-105 group-hover:grayscale-0"
+                  />
+                )}
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
 
-                <div className="absolute inset-x-0 bottom-0 p-8">
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 p-8">
                   <h3 className="text-2xl font-bold uppercase">
                     {service.title}
                   </h3>
@@ -233,15 +287,17 @@ export default function Home() {
                     {service.description}
                   </p>
 
-                  <a
-                    href="#contact"
-                    className="mt-5 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-[#d4af37]"
-                  >
-                    Discover details
-                    <span className="material-symbols-outlined text-base">
-                      arrow_forward
-                    </span>
-                  </a>
+                  {!service.video && (
+                    <a
+                      href="#contact"
+                      className="pointer-events-auto mt-5 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-[#d4af37]"
+                    >
+                      Discover details
+                      <span className="material-symbols-outlined text-base">
+                        arrow_forward
+                      </span>
+                    </a>
+                  )}
                 </div>
               </article>
             ))}
@@ -250,27 +306,27 @@ export default function Home() {
       </section>
 
       <section className="bg-black px-6 py-20 lg:px-10">
-        <div className="mx-auto grid max-w-7xl gap-12 text-center md:grid-cols-3">
+        <div className="mx-auto grid max-w-7xl gap-1 text-center md:grid-cols-3">
           <div>
             <div className="text-6xl font-extrabold text-[#ff6700]">
-              1,200+
+              30+
             </div>
             <div className="mt-3 text-xs font-semibold uppercase tracking-[0.2em] text-zinc-400">
-              Elite Members
-            </div>
-          </div>
-
-          <div>
-            <div className="text-6xl font-extrabold text-[#ff6700]">45</div>
-            <div className="mt-3 text-xs font-semibold uppercase tracking-[0.2em] text-zinc-400">
-              Master Coaches
+              Years of Experience
             </div>
           </div>
 
           <div>
-            <div className="text-6xl font-extrabold text-[#ff6700]">12</div>
+            <div className="text-6xl font-extrabold text-[#ff6700]">3</div>
             <div className="mt-3 text-xs font-semibold uppercase tracking-[0.2em] text-zinc-400">
-              Global Hubs
+              Membership Plans
+            </div>
+          </div>
+
+          <div>
+            <div className="text-6xl font-extrabold text-[#ff6700]">1</div>
+            <div className="mt-3 text-xs font-semibold uppercase tracking-[0.2em] text-zinc-400">
+              Rajajinagar Location
             </div>
           </div>
         </div>
@@ -283,11 +339,11 @@ export default function Home() {
         <div className="mx-auto max-w-7xl">
           <div className="text-center">
             <h2 className="text-4xl font-extrabold uppercase sm:text-5xl">
-              Choose Your Tier
+              Membership Plans
             </h2>
 
             <p className="mt-4 text-lg text-zinc-400">
-              Uncompromising access to the world of Apex Fitness.
+              Uncompromising access to the world of Metro Flex Gym.
             </p>
           </div>
 
@@ -303,7 +359,7 @@ export default function Home() {
               >
                 {plan.featured && (
                   <span className="absolute right-0 top-0 bg-[#d4af37] px-3 py-1 text-[10px] font-bold uppercase text-black">
-                    Most Popular
+                    Popular
                   </span>
                 )}
 
@@ -313,7 +369,7 @@ export default function Home() {
 
                 <div className="mt-6">
                   <span className="text-5xl font-bold">{plan.price}</span>
-                  <span className="text-zinc-400">/mo</span>
+                  <span className="text-zinc-400"></span>
                 </div>
 
                 <ul className="mt-8 flex-1 space-y-4">
@@ -326,6 +382,10 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
+
+                <p className="mt-6 text-sm font-semibold text-[#d4af37]">
+                  {plan.note}
+                </p>
 
                 <a
                   href="#contact"
@@ -346,23 +406,23 @@ export default function Home() {
       <section className="bg-[#131313] px-6 py-24 lg:px-10 lg:py-32">
         <div className="mx-auto grid max-w-7xl items-center gap-14 md:grid-cols-2">
           <div className="h-[500px] overflow-hidden">
-            <img
-              src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=1200&q=80"
-              alt="Apex Fitness member"
-              className="h-full w-full object-cover grayscale"
-            />
-          </div>
+  <img
+    src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=1200&q=80"
+    alt="Metro Flex Gym member"
+    className="h-full w-full object-cover grayscale"
+  />
+</div>
 
           <div>
             <h2 className="text-4xl font-extrabold uppercase sm:text-5xl">
-              Voices of the Elite
+              Meet Your Trainer
             </h2>
 
             <blockquote className="mt-10 border-l-2 border-[#d4af37] pl-7 text-xl leading-8">
               “Unmatched atmosphere. Every detail from the lighting to the
               equipment supports high performance.”
               <footer className="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400">
-                Sasha Volkov — Professional Swimmer
+                T. Suresh — Head Trainer
               </footer>
             </blockquote>
 
@@ -370,7 +430,7 @@ export default function Home() {
               “The recovery suite helps me maintain training volume and recover
               with confidence.”
               <footer className="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400">
-                David Chen — Ultra Runner
+                Metro Flex Gym — Rajajinagar
               </footer>
             </blockquote>
           </div>
@@ -378,81 +438,85 @@ export default function Home() {
       </section>
 
       <section id="contact" className="px-6 py-24 lg:px-10 lg:py-32">
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-2">
-          <div className="glass p-8 lg:p-12">
-            <h2 className="text-3xl font-extrabold uppercase sm:text-4xl">
-              Inquire for Intake
+        <div className="mx-auto max-w-5xl">
+          <div className="glass p-8 text-center lg:p-14">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#d4af37]">
+              Contact Metro Flex Gym
+            </p>
+
+            <h2 className="mt-4 text-3xl font-extrabold uppercase sm:text-5xl">
+              Start Your Fitness Journey
             </h2>
 
-            <form onSubmit={handleSubmit} className="mt-8 space-y-6">
-              <div className="grid gap-6 md:grid-cols-2">
-                <input
-                  required
-                  className="form-field"
-                  placeholder="Full name"
-                />
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-zinc-300">
+              Speak directly with T. Suresh about membership, timings, and training.
+            </p>
 
-                <input
-                  required
-                  type="email"
-                  className="form-field"
-                  placeholder="Email address"
-                />
-              </div>
+            <div className="mt-8 rounded-xl border border-white/10 bg-white/5 p-6">
+              <p className="font-semibold text-white">Metro Flex Gym</p>
+              <p className="mt-2 text-zinc-400">
+                Bengaluru, Rajajinagar, near ISKCON Temple
+              </p>
+              <p className="mt-2 text-zinc-400">
+                Trainer: T. Suresh — 30 years of experience
+              </p>
+            </div>
 
-              <select className="form-field">
-                <option>Hypertrophy and strength</option>
-                <option>Athletic conditioning</option>
-                <option>Bio-hack and longevity</option>
-                <option>Weight management</option>
-              </select>
-
-              <textarea
-                className="form-field min-h-32 resize-none"
-                placeholder="Tell us about your goals..."
-              />
-
-              <button
-                type="submit"
-                className="w-full bg-[#ff6700] py-4 font-bold uppercase tracking-widest text-black"
+            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+              <a
+                href="tel:+918790042094"
+                className="inline-flex items-center justify-center gap-3 border border-white/20 px-8 py-4 font-bold uppercase tracking-widest hover:bg-white/5"
               >
-                {submitted ? "Application Sent" : "Request Application"}
-              </button>
-            </form>
-          </div>
+                <span className="material-symbols-outlined">call</span>
+                Call 8790042094
+              </a>
 
-          <div className="relative flex min-h-[430px] items-center justify-center overflow-hidden border border-white/10 bg-[#131313]">
-            <div className="map-grid absolute inset-0 opacity-30" />
-
-            <div className="relative z-10 text-center">
-              <div className="mx-auto flex h-14 w-14 animate-bounce items-center justify-center rounded-full bg-[#ff6700] text-black shadow-[0_0_24px_rgba(255,103,0,.55)]">
-                <span className="material-symbols-outlined">location_on</span>
-              </div>
-
-              <div className="mt-4 text-xs font-bold uppercase tracking-widest text-[#d4af37]">
-                Global HQ
-              </div>
-
-              <div className="mt-2 text-sm text-zinc-400">
-                450 Elite Drive, Beverly Hills, CA
-              </div>
+              <a
+                href="https://wa.me/918790042094?text=Hi%20Metro%20Flex%20Gym%2C%20I%20want%20to%20know%20about%20membership."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-3 bg-[#25D366] px-8 py-4 font-bold uppercase tracking-widest text-black"
+              >
+                <span className="material-symbols-outlined">chat</span>
+                WhatsApp Us
+              </a>
             </div>
           </div>
         </div>
       </section>
 
+      <div className="fixed bottom-5 right-5 z-[60] flex flex-col gap-3">
+        <a
+          href="tel:+918790042094"
+          aria-label="Call Metro Flex Gym"
+          className="flex h-14 w-14 items-center justify-center rounded-full bg-[#ff6700] text-black shadow-[0_8px_30px_rgba(255,103,0,.4)] transition hover:scale-110"
+        >
+          <span className="material-symbols-outlined text-2xl">call</span>
+        </a>
+
+        <a
+          href="https://wa.me/918790042094?text=Hi%20Metro%20Flex%20Gym%2C%20I%20want%20to%20know%20about%20membership."
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp Metro Flex Gym"
+          className="flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-black shadow-[0_8px_30px_rgba(37,211,102,.4)] transition hover:scale-110"
+        >
+          <span className="material-symbols-outlined text-2xl">chat</span>
+        </a>
+      </div>
+
       <footer className="border-t border-white/10 px-6 py-16 text-center">
-        <div className="text-3xl font-extrabold">APEX FITNESS</div>
+        <div className="text-3xl font-extrabold">METRO FLEX GYM</div>
 
         <div className="mt-8 flex flex-wrap justify-center gap-6 text-xs uppercase tracking-widest text-zinc-400">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-          <a href="#">Accessibility</a>
+          <a href="#">Memberships</a>
+          <a href="#">Trainer</a>
+          <a href="#">Location</a>
           <a href="#contact">Contact</a>
         </div>
 
         <p className="mt-10 text-xs uppercase tracking-widest text-zinc-600">
-          © 2026 Apex Fitness. The Elite Standard.
+          © 2026 Metro Flex Gym. Rajajinagar, Bengaluru.
         </p>
       </footer>
     </main>
