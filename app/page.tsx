@@ -114,7 +114,7 @@ export default function Home() {
         className="relative flex min-h-screen items-center bg-cover bg-center px-6 pt-28"
         style={{
           backgroundImage:
-            "linear-gradient(90deg, rgba(0,0,0,.9), rgba(0,0,0,.58), rgba(0,0,0,.35)), url('/images/image0.jpeg')",
+            "linear-gradient(90deg, rgba(0,0,0,.9), rgba(0,0,0,.58), rgba(0,0,0,.35)), url('/images/image8.jpeg')",
         }}
       >
         <div className="mx-auto w-full max-w-7xl py-20">
@@ -299,20 +299,28 @@ export default function Home() {
       </section>
 
       <section id="video" className="px-6 py-24 lg:px-10 lg:py-32">
-        <div className="mx-auto max-w-7xl">
-          <div className="text-center">
-            <p className="section-label">Gym Walkthrough</p>
-            <h2 className="section-title mt-4">See Metro Flex in action</h2>
-          </div>
+  <div className="mx-auto max-w-7xl">
+    <div className="text-center">
+      <p className="section-label">Gym Walkthrough</p>
+      <h2 className="section-title mt-4">
+        See Metro Flex in action
+      </h2>
+    </div>
 
-          <div className="mt-12 overflow-hidden border border-white/10 bg-[#111]">
-            <video className="max-h-[720px] w-full object-cover" controls playsInline preload="metadata" poster="/images/image2.jpeg">
-              <source src="/images/video.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
-      </section>
+    <div className="mt-12 overflow-hidden border border-white/10 bg-[#111]">
+      <video
+        className="w-full"
+        controls
+        playsInline
+        preload="metadata"
+        poster="/images/image2.jpeg"
+      >
+        <source src="/images/video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</section>
 
       <section id="timings" className="bg-[#0d0d0d] px-6 py-24 lg:px-10 lg:py-32">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2">
