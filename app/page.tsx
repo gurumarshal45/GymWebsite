@@ -276,48 +276,181 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="gallery" className="bg-[#0d0d0d] px-6 py-24 lg:px-10 lg:py-32">
-        <div className="mx-auto max-w-7xl">
-          <div>
-            <p className="section-label">Real Gym Photos</p>
-            <h2 className="section-title mt-4">Inside Metro Flex</h2>
-          </div>
+      <section
+  id="gallery"
+  className="bg-[#0d0d0d] px-6 py-24 lg:px-10 lg:py-32"
+>
+  <div className="mx-auto max-w-7xl">
+    <div className="text-center">
+      <p className="section-label">Real Gym Photos</p>
 
-          <div className="mt-12 grid auto-rows-[240px] gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {gallery.map((image, index) => (
-              <figure
-                key={image.src}
-                className={`group overflow-hidden border border-white/10 ${
-                  index === 0 || index === 5 ? "lg:col-span-2 lg:row-span-2" : ""
-                }`}
-              >
-                <img src={image.src} alt={image.alt} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-              </figure>
-            ))}
-          </div>
-        </div>
-      </section>
+      <h2 className="section-title mt-4">
+        Inside Metro Flex
+      </h2>
+
+      <p className="mx-auto mt-5 max-w-2xl text-lg text-zinc-400">
+        Explore our equipment, workout areas, and training environment.
+      </p>
+    </div>
+
+    <div className="mt-12 grid auto-rows-[240px] gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {[
+
+           
+        {
+          src: "/images/image0.jpeg",
+          alt: "Metro Flex Gym equipment area",
+          featured: true,
+        },
+       
+        
+       
+        
+      
+        {
+          src: "/images/image5.jpeg",
+          alt: "Metro Flex Gym weights section",
+          featured: false,
+        },
+        {
+          src: "/images/image4.jpeg",
+          alt: "Metro Flex Gym interior",
+          featured: false,
+        },
+         {
+          src: "/images/image10.jpg",
+          alt: "Metro Flex Gym machines",
+          featured: false,
+        },
+      
+      
+          {
+          src: "/images/image12.jpg",
+          alt: "Metro Flex Gym training equipment",
+          featured: false,
+        },
+          {
+          src: "/images/image13.jpg",
+          alt: "Metro Flex Gym fitness area",
+          featured: true,
+        },
+        {
+          src: "/images/image9.jpg",
+          alt: "Metro Flex Gym member training",
+          featured: false,
+        },
+       
+        {
+          src: "/images/image11.jpg",
+          alt: "Metro Flex Gym workout space",
+          featured: false,
+        },
+         {
+          src: "/images/image2.jpeg",
+          alt: "Metro Flex Gym workout space",
+          featured: false,
+        },
+         {
+          src: "/images/image8.jpeg",
+          alt: "Metro Flex Gym workout space",
+          featured: false,
+        },
+      
+        
+        
+      ].map((image) => (
+        <figure
+          key={image.src}
+          className={`group overflow-hidden rounded-lg border border-white/10 ${
+            image.featured
+              ? "lg:col-span-2 lg:row-span-2"
+              : ""
+          }`}
+        >
+          <img
+            src={image.src}
+            alt={image.alt}
+            loading="lazy"
+            className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+          />
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
 
       <section id="video" className="px-6 py-24 lg:px-10 lg:py-32">
   <div className="mx-auto max-w-7xl">
     <div className="text-center">
       <p className="section-label">Gym Walkthrough</p>
+
       <h2 className="section-title mt-4">
-        See Metro Flex in action
+        See Metro Flex in Action
       </h2>
+
+      <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-zinc-400">
+        Explore our training area, gym equipment, and workout environment.
+      </p>
     </div>
 
-    <div className="mt-12 overflow-hidden border border-white/10 bg-[#111]">
-      <video
-        className="w-full"
-        controls
-        playsInline
-        preload="metadata"
-        poster="/images/image2.jpeg"
-      >
-        <source src="/images/video.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+    <div className="mt-12 grid gap-8 lg:grid-cols-2">
+      <article className="overflow-hidden border border-white/10 bg-[#111]">
+        <video
+          className="aspect-video w-full object-cover"
+          controls
+          playsInline
+          preload="metadata"
+          poster="/images/image8.jpeg"
+        >
+          <source src="/images/video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        <div className="p-6">
+          <div className="flex items-center gap-3">
+            <span className="material-symbols-outlined text-[#ff6700]">
+              fitness_center
+            </span>
+
+            <h3 className="text-xl font-black uppercase">
+              Gym Walkthrough
+            </h3>
+          </div>
+
+          <p className="mt-3 leading-7 text-zinc-400">
+            Take a look at the Metro Flex training floor and equipment.
+          </p>
+        </div>
+      </article>
+
+      <article className="overflow-hidden border border-white/10 bg-[#111]">
+        <video
+          className="aspect-video w-full object-cover"
+          controls
+          playsInline
+          preload="metadata"
+          poster="/images/image14.jpg"
+        >
+          <source src="/images/video1.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        <div className="p-6">
+          <div className="flex items-center gap-3">
+            <span className="material-symbols-outlined text-[#d4af37]">
+              play_circle
+            </span>
+
+            <h3 className="text-xl font-black uppercase">
+              Training Experience
+            </h3>
+          </div>
+
+          <p className="mt-3 leading-7 text-zinc-400">
+            See the workout environment and training experience at Metro Flex.
+          </p>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -344,21 +477,42 @@ export default function Home() {
               </div>
 
               <div>
-                <div className="font-black uppercase">Sunday</div>
-                <p className="mt-3 text-zinc-400">Please contact the gym for Sunday timings.</p>
+                
               </div>
             </div>
 
-            <p className="mt-6 text-sm text-[#ff6700]">
-              Update these timings if the actual gym schedule is different.
-            </p>
+            <div className="rounded-xl border border-[#d4af37]/30 bg-[#d4af37]/5 p-5">
+  <div className="flex items-center gap-3">
+    <span className="material-symbols-outlined text-[#d4af37]">
+      event_available
+    </span>
+
+    <div>
+      <div className="font-black uppercase">Sunday</div>
+
+      <p className="mt-1 text-sm text-zinc-400">
+        Open based on member requests and special training sessions.
+      </p>
+    </div>
+  </div>
+
+  <a
+    href="https://wa.me/918790042094?text=Hi%20Metro%20Flex%20Gym%2C%20please%20share%20Sunday%20timings."
+    target="_blank"
+    rel="noopener noreferrer"
+    className="mt-5 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-[#25D366]"
+  >
+    <span className="material-symbols-outlined text-base">chat</span>
+    Ask Sunday Timings
+  </a>
+</div>
           </div>
 
           <div className="glass p-8 lg:p-10">
             <p className="section-label">Location</p>
-            <h2 className="mt-4 text-3xl font-black uppercase sm:text-4xl">Near ISKCON Temple</h2>
+            <h2 className="mt-4 text-3xl font-black uppercase sm:text-4xl">Near Modi Hospital</h2>
             <p className="mt-6 text-lg leading-8 text-zinc-400">
-              Metro Flex Gym, Rajajinagar, Bengaluru, near ISKCON Temple.
+              Metro Flex Gym, Rajajinagar, Bengaluru, Near Modi Hospital.
             </p>
 
             <div className="mt-8 flex min-h-64 items-center justify-center bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:22px_22px]">
@@ -394,7 +548,7 @@ export default function Home() {
 
             <div className="mt-8 grid gap-4 text-left sm:grid-cols-3">
               {[
-                ["call", "Phone", "8790042094"],
+                ["call", "Phone", "Teja Number send trainer"],
                 ["person", "Trainer", "T. Suresh"],
                 ["location_on", "Location", "Rajajinagar"],
               ].map(([icon, label, value]) => (
@@ -445,7 +599,7 @@ export default function Home() {
           <span className="flex h-14 w-14 items-center justify-center rounded-full border border-[#d4af37] bg-[#ff6700] font-black text-black">MF</span>
         </div>
         <div className="mt-4 text-2xl font-black uppercase">Metro Flex Gym</div>
-        <p className="mt-3 text-sm text-zinc-500">Rajajinagar, Bengaluru — near ISKCON Temple</p>
+        <p className="mt-3 text-sm text-zinc-500">Rajajinagar, Bengaluru — Near Modi Hospital</p>
         <p className="mt-10 text-xs uppercase tracking-widest text-zinc-600">© 2026 Metro Flex Gym. All rights reserved.</p>
       </footer>
     </main>
