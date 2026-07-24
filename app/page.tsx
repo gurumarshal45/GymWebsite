@@ -1,5 +1,6 @@
 "use client";
 
+
 import { useState } from "react";
 
 const PHONE = "918790042094";
@@ -55,8 +56,59 @@ const gallery = Array.from({ length: 8 }, (_, index) => ({
   alt: `Metro Flex Gym photo ${index + 1}`,
 }));
 
+
+type SelectedPlan = {
+  name: string;
+  price: string;
+};
+
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+   const [selectedPlan, setSelectedPlan] =
+    useState<SelectedPlan | null>(null);
+
+  const [paymentStep, setPaymentStep] = useState<
+    "details" | "processing" | "success"
+  >("details");
+
+  const [customerName, setCustomerName] = useState("");
+  const [customerPhone, setCustomerPhone] = useState("");
+  const [paymentMethod, setPaymentMethod] = useState("UPI");
+  const [paymentError, setPaymentError] = useState("");
+
+  function openPayment(plan: SelectedPlan) {
+    setSelectedPlan(plan);
+    setPaymentStep("details");
+    setCustomerName("");
+    setCustomerPhone("");
+    setPaymentMethod("UPI");
+    setPaymentError("");
+  }
+
+  function closePayment() {
+    setSelectedPlan(null);
+    setPaymentStep("details");
+    setPaymentError("");
+  }
+
+  function handleDemoPayment() {
+    if (!customerName.trim()) {
+      setPaymentError("Please enter your name.");
+      return;
+    }
+
+    if (!/^[0-9]{10}$/.test(customerPhone)) {
+      setPaymentError("Please enter a valid 10-digit phone number.");
+      return;
+    }
+
+    setPaymentError("");
+    setPaymentStep("processing");
+
+    setTimeout(() => {
+      setPaymentStep("success");
+    }, 2000);
+  }
 
   return (
     <main className="min-h-screen overflow-x-hidden bg-black text-white">
@@ -222,6 +274,26 @@ export default function Home() {
                     plan.featured ? "bg-[#25D366] text-black" : "border border-white/20 hover:bg-white/5"
                   }`}
                 >
+                  <button
+  type="button"
+  onClick={() =>
+    openPayment({
+      name: plan.name,
+      price: plan.price,
+    })
+  }
+  className={`mt-8 inline-flex w-full items-center justify-center gap-2 py-4 text-sm font-black uppercase tracking-widest ${
+    plan.featured
+      ? "bg-[#ff6700] text-black"
+      : "border border-white/20 hover:bg-white/5"
+  }`}
+>
+  <span className="material-symbols-outlined">
+    payments
+  </span>
+
+  Pay for This Plan
+</button>
                   <span className="material-symbols-outlined">chat</span>
                   Join This Plan
                 </a>
@@ -578,6 +650,279 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {selectedPlan && (
+  <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 px-4 backdrop-blur-sm">
+    <div className="relative w-full max-w-lg overflow-hidden rounded-2xl border border-white/10 bg-[#111] shadow-2xl">
+      <div className="border-b border-white/10 bg-[#181818] px-6 py-5">
+        <div className="flex items-center justify-between gap-4">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#d4af37]">
+              Metro Flex Gym
+            </p>
+
+            <h2 className="mt-2 text-2xl font-black uppercase">
+              Demo Payment
+            </h2>
+          </div>
+
+          <button
+            type="button"
+            onClick={closePayment}
+            aria-label="Close payment"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-zinc-400 hover:bg-white/5 hover:text-white"
+          >
+            <span className="material-symbols-outlined">
+              close
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <div className="p-6">
+        {paymentStep === "details" && (
+          <>
+            <div className="rounded-xl border border-[#d4af37]/30 bg-[#d4af37]/5 p-5">
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-widest text-zinc-400">
+                    Selected Plan
+                  </p>
+
+                  <h3 className="mt-2 text-xl font-black uppercase">
+                    {selectedPlan.name}
+                  </h3>
+                </div>
+
+                <div className="text-3xl font-black text-[#d4af37]">
+                  {selectedPlan.price}
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-6">
+              <label className="text-sm font-bold text-zinc-300">
+                Full Name
+              </label>
+
+              <input
+                type="text"
+                value={customerName}
+                onChange={(event) =>
+                  setCustomerName(event.target.value)
+                }
+                placeholder="Enter your full name"
+                className="mt-2 w-full rounded-lg border border-white/10 bg-black px-4 py-4 text-white outline-none placeholder:text-zinc-600 focus:border-[#d4af37]"
+              />
+            </div>
+
+            <div className="mt-5">
+              <label className="text-sm font-bold text-zinc-300">
+                Phone Number
+              </label>
+
+              <input
+                type="tel"
+                value={customerPhone}
+                onChange={(event) =>
+                  setCustomerPhone(
+                    event.target.value.replace(/\D/g, "").slice(0, 10)
+                  )
+                }
+                placeholder="Enter 10-digit phone number"
+                className="mt-2 w-full rounded-lg border border-white/10 bg-black px-4 py-4 text-white outline-none placeholder:text-zinc-600 focus:border-[#d4af37]"
+              />
+            </div>
+
+            <div className="mt-5">
+              <label className="text-sm font-bold text-zinc-300">
+                Demo Payment Method
+              </label>
+
+              <div className="mt-3 grid grid-cols-3 gap-3">
+                {[
+                  {
+                    name: "UPI",
+                    icon: "qr_code",
+                  },
+                  {
+                    name: "Card",
+                    icon: "credit_card",
+                  },
+                  {
+                    name: "Cash",
+                    icon: "payments",
+                  },
+                ].map((method) => (
+                  <button
+                    key={method.name}
+                    type="button"
+                    onClick={() =>
+                      setPaymentMethod(method.name)
+                    }
+                    className={`flex flex-col items-center justify-center gap-2 rounded-lg border p-4 ${
+                      paymentMethod === method.name
+                        ? "border-[#d4af37] bg-[#d4af37]/10 text-[#d4af37]"
+                        : "border-white/10 text-zinc-400 hover:bg-white/5"
+                    }`}
+                  >
+                    <span className="material-symbols-outlined">
+                      {method.icon}
+                    </span>
+
+                    <span className="text-xs font-bold uppercase">
+                      {method.name}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {paymentMethod === "UPI" && (
+              <div className="mt-5 rounded-lg border border-white/10 bg-black/40 p-4 text-sm text-zinc-400">
+                This is a demo. No real UPI ID or payment is required.
+              </div>
+            )}
+
+            {paymentMethod === "Card" && (
+              <div className="mt-5 rounded-lg border border-white/10 bg-black/40 p-4 text-sm text-zinc-400">
+                This is a demo. Do not enter real card information.
+              </div>
+            )}
+
+            {paymentMethod === "Cash" && (
+              <div className="mt-5 rounded-lg border border-white/10 bg-black/40 p-4 text-sm text-zinc-400">
+                The customer can pay directly at the gym office.
+              </div>
+            )}
+
+            {paymentError && (
+              <div className="mt-5 flex items-center gap-2 rounded-lg border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-300">
+                <span className="material-symbols-outlined">
+                  error
+                </span>
+
+                {paymentError}
+              </div>
+            )}
+
+            <button
+              type="button"
+              onClick={handleDemoPayment}
+              className="mt-6 inline-flex w-full items-center justify-center gap-3 rounded-lg bg-[#ff6700] px-6 py-4 font-black uppercase tracking-widest text-black hover:shadow-[0_0_25px_rgba(255,103,0,.35)]"
+            >
+              <span className="material-symbols-outlined">
+                lock
+              </span>
+
+              Complete Demo Payment
+            </button>
+
+            <p className="mt-4 text-center text-xs leading-5 text-zinc-600">
+              Testing mode only. No real payment will be processed.
+            </p>
+          </>
+        )}
+
+        {paymentStep === "processing" && (
+          <div className="py-16 text-center">
+            <div className="mx-auto flex h-20 w-20 animate-pulse items-center justify-center rounded-full border border-[#d4af37]/30 bg-[#d4af37]/10">
+              <span className="material-symbols-outlined animate-spin text-4xl text-[#d4af37]">
+                progress_activity
+              </span>
+            </div>
+
+            <h3 className="mt-7 text-2xl font-black uppercase">
+              Processing Demo Payment
+            </h3>
+
+            <p className="mt-3 text-zinc-400">
+              Please wait while we simulate your payment.
+            </p>
+          </div>
+        )}
+
+        {paymentStep === "success" && (
+          <div className="py-10 text-center">
+            <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-[#25D366]/15">
+              <span className="material-symbols-outlined text-6xl text-[#25D366]">
+                check_circle
+              </span>
+            </div>
+
+            <p className="mt-7 text-xs font-bold uppercase tracking-[0.2em] text-[#25D366]">
+              Demo Payment Successful
+            </p>
+
+            <h3 className="mt-3 text-3xl font-black uppercase">
+              Membership Selected
+            </h3>
+
+            <div className="mx-auto mt-6 max-w-sm rounded-xl border border-white/10 bg-black/40 p-5 text-left">
+              <div className="flex justify-between gap-4">
+                <span className="text-zinc-500">Customer</span>
+                <span className="font-bold">
+                  {customerName}
+                </span>
+              </div>
+
+              <div className="mt-3 flex justify-between gap-4">
+                <span className="text-zinc-500">Phone</span>
+                <span className="font-bold">
+                  {customerPhone}
+                </span>
+              </div>
+
+              <div className="mt-3 flex justify-between gap-4">
+                <span className="text-zinc-500">Plan</span>
+                <span className="font-bold">
+                  {selectedPlan.name}
+                </span>
+              </div>
+
+              <div className="mt-3 flex justify-between gap-4">
+                <span className="text-zinc-500">Amount</span>
+                <span className="font-bold text-[#d4af37]">
+                  {selectedPlan.price}
+                </span>
+              </div>
+
+              <div className="mt-3 flex justify-between gap-4">
+                <span className="text-zinc-500">Method</span>
+                <span className="font-bold">
+                  {paymentMethod}
+                </span>
+              </div>
+            </div>
+
+            <a
+              href={`https://wa.me/918790042094?text=${encodeURIComponent(
+                `Hi Metro Flex Gym, I selected the ${selectedPlan.name} plan for ${selectedPlan.price}. My name is ${customerName} and my phone number is ${customerPhone}.`
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-7 inline-flex w-full items-center justify-center gap-3 rounded-lg bg-[#25D366] px-6 py-4 font-black uppercase tracking-widest text-black"
+            >
+              <span className="material-symbols-outlined">
+                chat
+              </span>
+
+              Confirm on WhatsApp
+            </a>
+
+            <button
+              type="button"
+              onClick={closePayment}
+              className="mt-4 w-full rounded-lg border border-white/10 px-6 py-4 font-bold uppercase tracking-widest text-zinc-300 hover:bg-white/5"
+            >
+              Close
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+)}
 
       <div className="fixed bottom-5 right-5 z-[60] flex flex-col gap-3">
         <a href="tel:+918790042094" aria-label="Call Metro Flex Gym" className="flex h-14 w-14 items-center justify-center rounded-full bg-[#ff6700] text-black shadow-[0_8px_30px_rgba(255,103,0,.4)] transition hover:scale-110">
