@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 
-const PHONE = "918790042094";
+const PHONE = "918892475554";
 const whatsapp = (message: string) =>
   `https://wa.me/${PHONE}?text=${encodeURIComponent(message)}`;
 
@@ -19,7 +19,7 @@ const navItems = [
 
 const features = [
   ["fitness_center", "Complete Equipment", "Strength and fitness equipment for beginners, regular members, and serious lifters."],
-  ["person_pin", "30 Years Experience", "Train under T. Suresh with practical guidance, safe technique, and steady progress."],
+  ["person_pin", "30 Years Experience", "Train under TJ. Suresh with practical guidance, safe technique, and steady progress."],
   ["groups", "Friendly Environment", "A supportive local gym atmosphere where members can train consistently and confidently."],
   ["payments", "Affordable Plans", "Simple monthly, 3-month, and 6-month membership options with clear pricing."],
 ];
@@ -183,7 +183,7 @@ export default function Home() {
             </h1>
 
             <p className="mt-7 max-w-2xl text-lg leading-8 text-zinc-300">
-              Affordable memberships, personal guidance, and a friendly training environment near ISKCON Temple, Rajajinagar.
+              Affordable memberships, personal guidance, and a friendly training environment Near Modi Hospital, Rajajinagar.
             </p>
 
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
@@ -196,7 +196,7 @@ export default function Home() {
                 <span className="material-symbols-outlined">fitness_center</span>
                 Join Metro Flex
               </a>
-              <a href="tel:+918790042094" className="glass inline-flex items-center justify-center gap-3 px-8 py-4 font-black uppercase tracking-widest text-[#d4af37]">
+              <a href="tel:+918892475554" className="glass inline-flex items-center justify-center gap-3 px-8 py-4 font-black uppercase tracking-widest text-[#d4af37]">
                 <span className="material-symbols-outlined">call</span>
                 Call Now
               </a>
@@ -211,7 +211,7 @@ export default function Home() {
             <p className="section-label">Why Metro Flex</p>
             <h2 className="section-title mt-4">A local gym built for real progress</h2>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-400">
-              Metro Flex Gym combines practical training, affordable pricing, and direct guidance from T. Suresh.
+              Metro Flex Gym combines practical training, affordable pricing, and direct guidance from TJ. Suresh.
               The focus is on consistency, correct technique, and measurable improvement.
             </p>
           </div>
@@ -274,26 +274,7 @@ export default function Home() {
                     plan.featured ? "bg-[#25D366] text-black" : "border border-white/20 hover:bg-white/5"
                   }`}
                 >
-                  <button
-  type="button"
-  onClick={() =>
-    openPayment({
-      name: plan.name,
-      price: plan.price,
-    })
-  }
-  className={`mt-8 inline-flex w-full items-center justify-center gap-2 py-4 text-sm font-black uppercase tracking-widest ${
-    plan.featured
-      ? "bg-[#ff6700] text-black"
-      : "border border-white/20 hover:bg-white/5"
-  }`}
->
-  <span className="material-symbols-outlined">
-    payments
-  </span>
-
-  Pay for This Plan
-</button>
+                  
                   <span className="material-symbols-outlined">chat</span>
                   Join This Plan
                 </a>
@@ -306,10 +287,10 @@ export default function Home() {
       <section id="trainer" className="px-6 py-24 lg:px-10 lg:py-32">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:items-center">
           <div className="relative overflow-hidden border border-white/10">
-            <img src="/images/image1.jpeg" alt="T. Suresh at Metro Flex Gym" className="h-[520px] w-full object-cover grayscale" />
+            <img src="/images/image1.jpeg" alt="TJ. Suresh at Metro Flex Gym" className="h-[520px] w-full object-cover grayscale" />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black to-transparent p-8">
               <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#d4af37]">Head Trainer</p>
-              <h3 className="mt-2 text-3xl font-black uppercase">T. Suresh</h3>
+              <h3 className="mt-2 text-3xl font-black uppercase">TJ. Suresh</h3>
             </div>
           </div>
 
@@ -317,7 +298,7 @@ export default function Home() {
             <p className="section-label">Meet Your Trainer</p>
             <h2 className="section-title mt-4">30 years of practical training experience</h2>
             <p className="mt-6 text-lg leading-8 text-zinc-400">
-              T. Suresh provides hands-on guidance for beginners, regular members, strength training,
+              TJ. Suresh provides hands-on guidance for beginners, regular members, strength training,
               weight management, and general fitness.
             </p>
 
@@ -336,7 +317,7 @@ export default function Home() {
             </div>
 
             <a
-              href={whatsapp("Hi Metro Flex Gym, I want to speak with T. Suresh about training.")}
+              href={whatsapp("Hi Metro Flex Gym, I want to speak with TJ. Suresh about training.")}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-8 inline-flex items-center gap-3 bg-[#25D366] px-7 py-4 font-black uppercase tracking-widest text-black"
@@ -368,33 +349,34 @@ export default function Home() {
     <div className="mt-12 grid auto-rows-[240px] gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {[
 
-           
-        {
-          src: "/images/image0.jpeg",
-          alt: "Metro Flex Gym equipment area",
-          featured: true,
-        },
        
         
        
         
       
+       
         {
-          src: "/images/image5.jpeg",
-          alt: "Metro Flex Gym weights section",
-          featured: false,
-        },
-        {
-          src: "/images/image4.jpeg",
+          src: "/images/image16.jpeg",
           alt: "Metro Flex Gym interior",
           featured: false,
         },
+            
+        {
+          src: "/images/image15.jpeg",
+          alt: "Metro Flex Gym equipment area",
+          featured: true,
+        },
+       
          {
           src: "/images/image10.jpg",
           alt: "Metro Flex Gym machines",
           featured: false,
         },
-      
+       {
+          src: "/images/image5.jpeg",
+          alt: "Metro Flex Gym weights section",
+          featured: false,
+        },
       
           {
           src: "/images/image12.jpg",
@@ -418,7 +400,7 @@ export default function Home() {
           featured: false,
         },
          {
-          src: "/images/image2.jpeg",
+          src: "/images/image17.jpg",
           alt: "Metro Flex Gym workout space",
           featured: false,
         },
@@ -451,24 +433,26 @@ export default function Home() {
   </div>
 </section>
 
-      <section id="video" className="px-6 py-24 lg:px-10 lg:py-32">
+     <section id="video" className="px-6 py-24 lg:px-10 lg:py-32">
   <div className="mx-auto max-w-7xl">
     <div className="text-center">
-      <p className="section-label">Gym Walkthrough</p>
+      <p className="section-label">Metro Flex Videos</p>
 
       <h2 className="section-title mt-4">
         See Metro Flex in Action
       </h2>
 
       <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-zinc-400">
-        Explore our training area, gym equipment, and workout environment.
+        Explore our gym facility, training environment, and trainer-assisted
+        fitness sessions.
       </p>
     </div>
 
-    <div className="mt-12 grid gap-8 lg:grid-cols-2">
-      <article className="overflow-hidden border border-white/10 bg-[#111]">
+    <div className="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+      {/* Video 1 */}
+      <article className="flex h-full flex-col overflow-hidden rounded-xl border border-white/10 bg-[#111]">
         <video
-          className="aspect-video w-full object-cover"
+          className="aspect-video w-full bg-black object-cover"
           controls
           playsInline
           preload="metadata"
@@ -478,26 +462,28 @@ export default function Home() {
           Your browser does not support the video tag.
         </video>
 
-        <div className="p-6">
+        <div className="flex flex-1 flex-col p-6">
           <div className="flex items-center gap-3">
             <span className="material-symbols-outlined text-[#ff6700]">
               fitness_center
             </span>
 
             <h3 className="text-xl font-black uppercase">
-              Gym Walkthrough
+              Personal Training
             </h3>
           </div>
 
           <p className="mt-3 leading-7 text-zinc-400">
-            Take a look at the Metro Flex training floor and equipment.
+            See personalized training guidance and practical workout support
+            provided at Metro Flex Gym.
           </p>
         </div>
       </article>
 
-      <article className="overflow-hidden border border-white/10 bg-[#111]">
+      {/* Video 2 */}
+      <article className="flex h-full flex-col overflow-hidden rounded-xl border border-white/10 bg-[#111]">
         <video
-          className="aspect-video w-full object-cover"
+          className="aspect-video w-full bg-black object-cover"
           controls
           playsInline
           preload="metadata"
@@ -507,19 +493,50 @@ export default function Home() {
           Your browser does not support the video tag.
         </video>
 
-        <div className="p-6">
+        <div className="flex flex-1 flex-col p-6">
           <div className="flex items-center gap-3">
             <span className="material-symbols-outlined text-[#d4af37]">
-              play_circle
+              celebration
             </span>
 
             <h3 className="text-xl font-black uppercase">
-              Training Experience
+              Member Celebrations
             </h3>
           </div>
 
           <p className="mt-3 leading-7 text-zinc-400">
-            See the workout environment and training experience at Metro Flex.
+           Celebrating member achievements, fitness milestones, and special moments
+    together at Metro Flex Gym.
+          </p>
+        </div>
+      </article>
+
+      {/* Video 3 */}
+      <article className="flex h-full flex-col overflow-hidden rounded-xl border border-white/10 bg-[#111]">
+        <video
+          className="aspect-video w-full bg-black object-cover"
+          controls
+          playsInline
+          preload="metadata"
+          poster="/images/image0.jpeg"
+        >
+          <source src="/images/video2.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        <div className="flex flex-1 flex-col p-6">
+          <div className="flex items-center gap-3">
+            <span className="material-symbols-outlined text-[#25D366]">
+              accessibility_new
+            </span>
+
+            <h3 className="text-xl font-black uppercase">
+              Trainer-Assisted Stretching
+            </h3>
+          </div>
+
+          <p className="mt-3 leading-7 text-zinc-400">
+            Personal guidance from T. Suresh to improve flexibility, reduce stiffness, and support better movement.
           </p>
         </div>
       </article>
@@ -569,7 +586,7 @@ export default function Home() {
   </div>
 
   <a
-    href="https://wa.me/918790042094?text=Hi%20Metro%20Flex%20Gym%2C%20please%20share%20Sunday%20timings."
+    href="https://wa.me/918892475554?text=Hi%20Metro%20Flex%20Gym%2C%20please%20share%20Sunday%20timings."
     target="_blank"
     rel="noopener noreferrer"
     className="mt-5 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-[#25D366]"
@@ -615,13 +632,13 @@ export default function Home() {
             <p className="section-label">Contact Metro Flex Gym</p>
             <h2 className="section-title mt-4">Start your fitness journey</h2>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-zinc-300">
-              Contact T. Suresh directly for membership, gym timings, and training details.
+              Contact TJ. Suresh directly for membership, gym timings, and training details.
             </p>
 
             <div className="mt-8 grid gap-4 text-left sm:grid-cols-3">
               {[
-                ["call", "Phone", "Teja Number send trainer"],
-                ["person", "Trainer", "T. Suresh"],
+                ["call", "Phone", "8892475554"],
+                ["person", "Trainer", "TJ. Suresh"],
                 ["location_on", "Location", "Rajajinagar"],
               ].map(([icon, label, value]) => (
                 <div key={label} className="border border-white/10 bg-white/5 p-5">
@@ -633,7 +650,7 @@ export default function Home() {
             </div>
 
             <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-              <a href="tel:+918790042094" className="inline-flex items-center justify-center gap-3 border border-white/20 px-8 py-4 font-black uppercase tracking-widest hover:bg-white/5">
+              <a href="tel:+918892475554" className="inline-flex items-center justify-center gap-3 border border-white/20 px-8 py-4 font-black uppercase tracking-widest hover:bg-white/5">
                 <span className="material-symbols-outlined">call</span>
                 Call Now
               </a>
@@ -651,7 +668,7 @@ export default function Home() {
         </div>
       </section>
 
-      {selectedPlan && (
+      {/*{false && selectedPlan && (
   <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 px-4 backdrop-blur-sm">
     <div className="relative w-full max-w-lg overflow-hidden rounded-2xl border border-white/10 bg-[#111] shadow-2xl">
       <div className="border-b border-white/10 bg-[#181818] px-6 py-5">
@@ -896,7 +913,7 @@ export default function Home() {
             </div>
 
             <a
-              href={`https://wa.me/918790042094?text=${encodeURIComponent(
+              href={`https://wa.me/918892475554?text=${encodeURIComponent(
                 `Hi Metro Flex Gym, I selected the ${selectedPlan.name} plan for ${selectedPlan.price}. My name is ${customerName} and my phone number is ${customerPhone}.`
               )}`}
               target="_blank"
@@ -910,22 +927,33 @@ export default function Home() {
               Confirm on WhatsApp
             </a>
 
-            <button
-              type="button"
-              onClick={closePayment}
-              className="mt-4 w-full rounded-lg border border-white/10 px-6 py-4 font-bold uppercase tracking-widest text-zinc-300 hover:bg-white/5"
-            >
-              Close
-            </button>
+          
+
+            <a
+  href={whatsapp(plan.message)}
+  target="_blank"
+  rel="noopener noreferrer"
+  className={`mt-8 inline-flex w-full items-center justify-center gap-2 py-4 text-sm font-black uppercase tracking-widest ${
+    plan.featured
+      ? "bg-[#25D366] text-black"
+      : "border border-white/20 hover:bg-white/5"
+  }`}
+>
+  <span className="material-symbols-outlined">
+    chat
+  </span>
+
+  Join This Plan
+</a>
           </div>
         )}
       </div>
     </div>
   </div>
-)}
+)*/}
 
       <div className="fixed bottom-5 right-5 z-[60] flex flex-col gap-3">
-        <a href="tel:+918790042094" aria-label="Call Metro Flex Gym" className="flex h-14 w-14 items-center justify-center rounded-full bg-[#ff6700] text-black shadow-[0_8px_30px_rgba(255,103,0,.4)] transition hover:scale-110">
+        <a href="tel:+918892475554" aria-label="Call Metro Flex Gym" className="flex h-14 w-14 items-center justify-center rounded-full bg-[#ff6700] text-black shadow-[0_8px_30px_rgba(255,103,0,.4)] transition hover:scale-110">
           <span className="material-symbols-outlined text-2xl">call</span>
         </a>
         <a
