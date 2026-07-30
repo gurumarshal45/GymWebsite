@@ -166,7 +166,7 @@ export default function Home() {
         className="relative flex min-h-screen items-center bg-cover bg-center px-6 pt-28"
         style={{
           backgroundImage:
-            "linear-gradient(90deg, rgba(0,0,0,.9), rgba(0,0,0,.58), rgba(0,0,0,.35)), url('/images/image8.jpeg')",
+            "linear-gradient(90deg, rgba(0,0,0,.9), rgba(0,0,0,.58), rgba(0,0,0,.35)), url('/images/image11.jpg')",
         }}
       >
         <div className="mx-auto w-full max-w-7xl py-20">
@@ -348,70 +348,66 @@ export default function Home() {
 
     <div className="mt-12 grid auto-rows-[240px] gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {[
-
-       
-        
-       
-        
-      
-       
         {
           src: "/images/image16.jpeg",
           alt: "Metro Flex Gym interior",
           featured: false,
+          position: "center",
         },
-            
         {
           src: "/images/image15.jpeg",
           alt: "Metro Flex Gym equipment area",
           featured: true,
+          position: "center",
         },
-       
-         {
+        {
           src: "/images/image10.jpg",
           alt: "Metro Flex Gym machines",
           featured: false,
+          position: "center",
         },
-       {
+        {
           src: "/images/image5.jpeg",
           alt: "Metro Flex Gym weights section",
           featured: false,
+          position: "center",
         },
-      
-          {
+        {
           src: "/images/image12.jpg",
           alt: "Metro Flex Gym training equipment",
           featured: false,
+          position: "center",
         },
-          {
+        {
           src: "/images/image13.jpg",
           alt: "Metro Flex Gym fitness area",
           featured: true,
+          position: "50% 25%",
         },
         {
           src: "/images/image9.jpg",
           alt: "Metro Flex Gym member training",
           featured: false,
+          position: "50% 25%",
         },
-       
         {
           src: "/images/image11.jpg",
           alt: "Metro Flex Gym workout space",
           featured: false,
+          position: "center",
         },
-         {
+        {
           src: "/images/image17.jpg",
           alt: "Metro Flex Gym workout space",
           featured: false,
+          position: "50% 15%",
         },
-         {
-          src: "/images/image8.jpeg",
+        {
+          src: "/images/image14.jpg",
           alt: "Metro Flex Gym workout space",
           featured: false,
+          position: "center",
         },
-      
-        
-        
       ].map((image) => (
         <figure
           key={image.src}
@@ -425,6 +421,9 @@ export default function Home() {
             src={image.src}
             alt={image.alt}
             loading="lazy"
+            style={{
+              objectPosition: image.position,
+            }}
             className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
           />
         </figure>
@@ -432,7 +431,6 @@ export default function Home() {
     </div>
   </div>
 </section>
-
      <section id="video" className="px-6 py-24 lg:px-10 lg:py-32">
   <div className="mx-auto max-w-7xl">
     <div className="text-center">
@@ -513,16 +511,16 @@ export default function Home() {
 
       {/* Video 3 */}
       <article className="flex h-full flex-col overflow-hidden rounded-xl border border-white/10 bg-[#111]">
-        <video
-          className="aspect-video w-full bg-black object-cover"
-          controls
-          playsInline
-          preload="metadata"
-          poster="/images/image0.jpeg"
-        >
-          <source src="/images/video2.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+          <video
+    className="aspect-video w-full bg-black object-contain"
+    controls
+    playsInline
+    preload="metadata"
+    poster="/images/image0.jpeg"
+  >
+    <source src="/images/video2.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
 
         <div className="flex flex-1 flex-col p-6">
           <div className="flex items-center gap-3">
